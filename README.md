@@ -123,7 +123,7 @@ Response:
         "author_id": 47,
         "text": "Ужасный товар!!! НЕ РЕКОМЕНДУЮ!",
         "rating": 2
-        },
+        }
     ]
 }
 ```
@@ -132,7 +132,7 @@ Response:
 **ER диаграммы (физический уровень):**
 
 
-- *One-to-One:
+- *One-to-One*:
 
 
 ![one-to-one](one-to-one.png)
