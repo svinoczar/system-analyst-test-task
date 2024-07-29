@@ -6,6 +6,8 @@
 
 
 REST API GET запрос для перехода на страницу рекоммендаций:
+
+
 ```http://market.yandex.ru/api/v4/goods/recommendations``` 
 
 Response:
@@ -57,11 +59,15 @@ Response:
 
 - ## Task 2
 
-Sequence UML диаграмма (.png):
+*Sequence UML диаграмма (.png):*
+
+
 ![Sequence UML](sequence.png)
 
 
-Sequence UML диаграмма (код):
+*Sequence UML диаграмма (код):*
+
+
 ```
 sequenceDiagram
     participant User
@@ -80,6 +86,8 @@ sequenceDiagram
 ```
 
 REST API GET запрос для перехода на страницу товара:
+
+
 ```http://market.yandex.ru/api/v4/goods/{id}```
 
 Response:
@@ -121,11 +129,17 @@ Response:
 ```
 
 - ## Task 3
-ER диаграммы (физический уровень):
-- One-to-One:
+**ER диаграммы (физический уровень):**
+
+
+- *One-to-One:
+
+
 ![one-to-one](one-to-one.png)
 
-- Many-to-Many:
+- *Many-to-Many*:
+
+
 ![many-to-many](many-to-many.png)
 
 
