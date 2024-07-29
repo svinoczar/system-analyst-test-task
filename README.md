@@ -6,14 +6,14 @@
 
 
 GET запрос:
-```http://market.yandex.ru/api/v1/goods/recommendations``` 
+```http://market.yandex.ru/api/v4/goods/recommendations``` 
 
 Response:
 ```json
 {
     "message": "List of goods",
     "status_code": 200,
-    "timestamp": "2024-07-24T04:39:48.875024+03:00",
+    "timestamp": "2024-07-29T15:25:45.875024+03:00",
     "goods": [
         {
             "id": 1,
@@ -35,7 +35,7 @@ Response:
         },
         {
             "id": 3,
-            "name": "Полка настенная ChoodWood 60x20 см из массива дерева карагач",
+            "name": "Полка настенная ChoodWood 60x20 см из массива дерева карагач_1",
             "currency_symbol": "₽",
             "price": 8918,
             "discount_price": 2520,
@@ -57,12 +57,68 @@ Response:
 
 - ## Task 2
 
-Sequence UML диаграмма:
+Sequence UML диаграмма (.png):
+![Sequence UML]("sequence.png")
 
+
+Sequence UML диаграмма (код):
+```
+sequenceDiagram
+    participant User
+    participant App
+    participant YandexMarketAPI
+
+    User->>App: Открывает экран рекомендаций
+    App->>YandexMarketAPI: GET http://market.yandex.ru/api/v4/goods/recommendations
+    YandexMarketAPI-->>App: Возвращает список рекомендованных товаров
+    App->>User: Отображает экран с рекомендациями
+
+    User->>App: Выбирает конкретный товар
+    App->>YandexMarketAPI: GET http://market.yandex.ru/api/v4/goods/{id}
+    YandexMarketAPI-->>App: Возвращает данные выбранного товара
+    App->>User: Отображает экран с информацией о товаре
+```
 
 REST API GET запрос для перехода на страницу товара:
-```http://market.yandex.ru/api/v1/goods/get{id}```
+```http://market.yandex.ru/api/v4/goods/{id}```
 
+Response:
+```json
+{
+    "message": "Good's info",
+    "status_code": 200,
+    "timestamp": "2024-07-29T15:25:45.875024+03:00",
+    "id": 3,
+    "name": "Полка настенная ChoodWood 60x20 см из массива дерева карагач",
+    "description": "Открытые навесные полки - современная и стильная система хранения, которая впишется в любой интерьер. Парящая полка покрыта лаком, имеет живой край и выполнена из массива твердых пород дерева.",
+    "currency_symbol": "₽",
+    "price": 8918,
+    "discount_price": 2520,
+    "image_refferences": [
+        "/img/furniture/bookshelf/ChoodWood_60x20_см_карагач_1.png",
+        "/img/furniture/bookshelf/ChoodWood_60x20_см_карагач_2.png",
+        "/img/furniture/bookshelf/ChoodWood_60x20_см_карагач_3.png",
+        "/img/furniture/bookshelf/ChoodWood_60x20_см_карагач_4.png",
+        "/img/furniture/bookshelf/ChoodWood_60x20_см_карагач_5.png",
+        ],
+    "comments": [
+        {
+        "id": 1,
+        "timestamp": "2024-07-07T12:20:10.873024+06:00",
+        "author_id": 22,
+        "text": "Отличный товар!",
+        "rating": 5
+        },
+        {
+        "id": 2,
+        "timestamp": "2024-07-16T23:00:57.873024+03:00",
+        "author_id": 47,
+        "text": "Ужасный товар!!! НЕ РЕКОМЕНДУЮ!",
+        "rating": 2
+        },
+    ]
+}
+```
 
 - ## Task 3
 
